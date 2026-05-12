@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PSHT PASIRIAN - Official Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#454748",
+                    "on-secondary-fixed": "#191c1d",
+                    "surface-tint": "#5d5f5f",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "surface-dim": "#ddd9d9",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f4f0ef",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "on-primary-fixed": "#1a1c1c",
+                    "secondary": "#5c5f60",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1c1b1b",
+                    "primary": "#800000", /* Overridden with Brand Maroon */
+                    "on-primary-container": "#747676",
+                    "inverse-primary": "#c6c6c7",
+                    "on-primary-fixed-variant": "#454747",
+                    "surface": "#fcf8f8",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#ffffff",
+                    "inverse-surface": "#313030",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#D4AF37", /* Overridden with Brand Gold */
+                    "surface-container": "#f1edec",
+                    "surface-container-high": "#ebe7e7",
+                    "primary-fixed": "#e2e2e2",
+                    "secondary-fixed": "#e1e3e4",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "outline": "#747878",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "tertiary-container": "#ffffff",
+                    "surface-variant": "#e5e2e1",
+                    "outline-variant": "#c4c7c8",
+                    "background": "#fcf8f8",
+                    "secondary-container": "#e1e3e4",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface": "#1c1b1b",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary-container": "#747676",
+                    "on-secondary-container": "#626566",
+                    "surface-bright": "#fcf8f8",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-tertiary-fixed": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "0.5rem",
+                    "gutter": "24px",
+                    "sm": "1rem",
+                    "md": "1.5rem",
+                    "base": "4px",
+                    "max-width": "1280px",
+                    "xl": "4rem",
+                    "margin-desktop": "auto",
+                    "margin-mobile": "16px",
+                    "lg": "2.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "caption": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .shadow-soft {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        .hero-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-[15px] border-b border-outline-variant/30">
+<div class="max-w-max-width mx-auto px-gutter flex justify-between items-center h-20">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-headline-sm" data-icon="account_balance">account_balance</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">PSHT PASIRIAN</span>
+</div>
+<nav class="hidden md:flex gap-md">
+<a class="text-primary font-bold border-b-2 border-primary font-label-md text-label-md" href="#">Beranda</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Profil</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Jadwal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Berita</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="text-primary font-label-md text-label-md px-md py-xs border border-primary rounded-lg hover:bg-primary hover:text-white transition-all">LOGIN</button>
+<button class="md:hidden flex items-center">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[707px] flex items-center justify-center text-center px-gutter pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A formal wide-angle photograph of a traditional martial arts training hall with polished wooden floors and natural light. The atmosphere is serene, disciplined, and prestigious, reflecting a high-standard academy. Soft lighting highlights the architectural details of the space, creating a professional and institutional mood in a light-mode color palette of soft grays and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf-aXNPhky2BrOPlI2ciVWWZC4nI7zKJk7eBmiND7JEQPvcmTV0Ycb-57ooHjM5p7QH1FV4HKHkX-yo7j8vWqoegFWmpOa9Cl0edKXJxtwHYUuTKpbIZnkt8_l5ewu9v41QSdjGyynLYZG6BLWRi-i2LwbOh4c97pLcAfT07XVu5Bi4-NOnt20MTwg9TY85F3NXa8eXuonW0WeVg9Cw2rAYbow6MITn4JNRMmc0aNIWiB5teFkCLTcYLPOu_aKCCL3vOMkFOTyWSvf"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 max-w-2xl text-white">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-sm">PSHT Ranting Pasirian</h1>
+<p class="font-body-lg text-body-lg mb-lg opacity-90">Menjunjung tinggi nilai persaudaraan, budi luhur, dan pelestarian budaya bangsa melalui pencak silat profesional.</p>
+<div class="flex flex-col sm:flex-row gap-sm justify-center">
+<button class="bg-primary text-white px-lg py-md rounded-xl font-label-md text-label-md hover:opacity-90 transition-all shadow-lg active:scale-95">Lihat Rayon</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/40 text-white px-lg py-md rounded-xl font-label-md text-label-md hover:bg-white/20 transition-all active:scale-95">Lihat Kegiatan</button>
+</div>
+</div>
+</section>
+<!-- Statistik Section -->
+<section class="py-xl max-w-max-width mx-auto px-gutter relative -mt-16 z-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-md">
+<div class="bg-white p-lg rounded-xl shadow-soft text-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-headline-md mb-xs" data-icon="group">group</span>
+<div class="text-headline-md font-headline-md text-primary">1.250+</div>
+<div class="text-caption font-caption text-on-surface-variant uppercase tracking-wider">Total Warga</div>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-soft text-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-headline-md mb-xs" data-icon="account_tree">account_tree</span>
+<div class="text-headline-md font-headline-md text-primary">12</div>
+<div class="text-caption font-caption text-on-surface-variant uppercase tracking-wider">Total Rayon</div>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-soft text-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-headline-md mb-xs" data-icon="school">school</span>
+<div class="text-headline-md font-headline-md text-primary">450+</div>
+<div class="text-caption font-caption text-on-surface-variant uppercase tracking-wider">Total Siswa</div>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-soft text-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-headline-md mb-xs" data-icon="military_tech">military_tech</span>
+<div class="text-headline-md font-headline-md text-primary">35</div>
+<div class="text-caption font-caption text-on-surface-variant uppercase tracking-wider">Total Pelatih</div>
+</div>
+</div>
+</section>
+<!-- Tentang Kami Section -->
+<section class="py-xl bg-surface-container-low/50">
+<div class="max-w-max-width mx-auto px-gutter grid md:grid-cols-2 gap-xl items-center">
+<div class="order-2 md:order-1">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Menjaga Tradisi, Membangun Karakter</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mb-md leading-relaxed">
+                    PSHT Ranting Pasirian merupakan bagian dari Persaudaraan Setia Hati Terate Cabang Lumajang. Kami berkomitmen untuk mendidik manusia yang berbudi luhur, tahu benar dan salah, serta bertaqwa kepada Tuhan Yang Maha Esa. 
+                </p>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg leading-relaxed">
+                    Melalui latihan fisik, mental, dan spiritual, kami mencetak generasi muda yang memiliki disiplin tinggi dan semangat persaudaraan yang tak lekang oleh waktu.
+                </p>
+<button class="flex items-center gap-xs text-primary font-bold hover:underline">
+                    Pelajari Sejarah Kami
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="order-1 md:order-2">
+<div class="rounded-xl overflow-hidden shadow-soft border-4 border-white">
+<img class="w-full h-80 object-cover" data-alt="A formal portrait of disciplined martial artists practicing in a row within a bright, airy indoor studio. The lighting is crisp and professional, highlighting their white uniforms against a neutral background. The scene conveys a sense of focus, elite training, and institutional tradition, adhering to a minimalist, modern light-mode aesthetic with accents of deep maroon in the subtle background details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZnCETxePPdM-mw47BuGsvOhCCmYGBL4PKoR7NsuLdruKuXfldQxSystAugL892XOBDlJ2f5Tp1kQ929lT9vIVnZKbn1_XxlVyQ0G7pFZcyWlDyvgcxxa7_LwkvRSNErertWPat71YOVgNO_jNYNTAEkSw7W-0LErzP_Q5JifWM2TyD4NIVgvMrxHdzt2XtXrjJE4WZxhu23oIuAsmwAYnxLe5X3w4Jgs3t5ygJPIdCdVjWf5TcUca3ye8Dnez3a6GkFoKYEvqeh1E"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Daftar Rayon Section (Bento Grid Style) -->
+<section class="py-xl max-w-max-width mx-auto px-gutter">
+<div class="text-center mb-xl">
+<h2 class="font-headline-md text-headline-md text-primary">Pusat Latihan (Rayon)</h2>
+<p class="text-on-surface-variant mt-xs">Pilih lokasi latihan terdekat dengan wilayah Anda.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="bg-white p-md rounded-xl shadow-soft border border-outline-variant/30 flex flex-col hover:border-tertiary transition-all">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rayon Pasirian</h3>
+<span class="bg-tertiary/10 text-tertiary px-xs py-1 rounded text-caption font-bold uppercase">Pusat Ranting</span>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="pin_drop">pin_drop</span>
+</div>
+<div class="space-y-sm mb-lg">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="person">person</span>
+<span class="text-body-md">Mas Budi Santoso</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="calendar_month">calendar_month</span>
+<span class="text-body-md">Senin &amp; Kamis, 19:30 WIB</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="location_on">location_on</span>
+<span class="text-body-md">GOR Pasirian, Lumajang</span>
+</div>
+</div>
+<div class="mt-auto flex gap-sm">
+<button class="flex-1 bg-primary text-white py-xs rounded-lg font-label-md flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat</span> WhatsApp
+                    </button>
+<button class="px-md py-xs border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-md rounded-xl shadow-soft border border-outline-variant/30 flex flex-col hover:border-tertiary transition-all">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rayon Condro</h3>
+<span class="bg-secondary-container text-on-secondary-container px-xs py-1 rounded text-caption font-bold uppercase">Aktif</span>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="pin_drop">pin_drop</span>
+</div>
+<div class="space-y-sm mb-lg">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="person">person</span>
+<span class="text-body-md">Mas Agus Wijaya</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="calendar_month">calendar_month</span>
+<span class="text-body-md">Rabu &amp; Sabtu, 20:00 WIB</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="location_on">location_on</span>
+<span class="text-body-md">Balai Desa Condro</span>
+</div>
+</div>
+<div class="mt-auto flex gap-sm">
+<button class="flex-1 bg-primary text-white py-xs rounded-lg font-label-md flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat</span> WhatsApp
+                    </button>
+<button class="px-md py-xs border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-md rounded-xl shadow-soft border border-outline-variant/30 flex flex-col hover:border-tertiary transition-all">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rayon Selok</h3>
+<span class="bg-secondary-container text-on-secondary-container px-xs py-1 rounded text-caption font-bold uppercase">Aktif</span>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="pin_drop">pin_drop</span>
+</div>
+<div class="space-y-sm mb-lg">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="person">person</span>
+<span class="text-body-md">Mas Rudi Hartono</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="calendar_month">calendar_month</span>
+<span class="text-body-md">Selasa &amp; Jumat, 19:30 WIB</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="location_on">location_on</span>
+<span class="text-body-md">SDN 01 Selok Awar-Awar</span>
+</div>
+</div>
+<div class="mt-auto flex gap-sm">
+<button class="flex-1 bg-primary text-white py-xs rounded-lg font-label-md flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat</span> WhatsApp
+                    </button>
+<button class="px-md py-xs border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Berita & Kegiatan -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Informasi Terkini</h2>
+<p class="text-on-surface-variant">Berita dan agenda kegiatan Ranting Pasirian.</p>
+</div>
+<button class="hidden md:block text-primary font-bold border-b border-primary pb-1">Lihat Semua Berita</button>
+</div>
+<div class="grid md:grid-cols-3 gap-md">
+<!-- News Item 1 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-soft group border border-outline-variant/30">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean, professional photograph of a cultural celebration event featuring traditional Indonesian arts. The scene is bright and airy with high-key lighting, focusing on a group of disciplined participants in formal uniforms. The aesthetic is modern and institutional, highlighting community and heritage in a prestigious, light-filled environment with soft grays and white backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4oZjs2Tjl3n3MI_-tjyCLai9KJJLKBdoGalzTLO81PW-QVWX7yJr9aSpglRUsF5fpuHZzDMaapdiBqf0uLkdvR0DOARNMrSwDDVUBXu9rIy7klwvrMn2u3prUGgdvBFySFsK6fZXL2fzYujKUKoU_Tkq2gl_5MEeNf60WeTYRmMWfHuGeYJ7n_icsQbvW2fnpXxe4uo-10RP1lH5zH4dTesJ_YopOE_cxuJQbSSChl3itnyf45MxLddHSLsUn_G7RohQBOx69uHia"/>
+<div class="absolute top-md left-md bg-white/90 backdrop-blur-sm px-sm py-xs rounded text-caption font-bold text-primary">KEGIATAN</div>
+</div>
+<div class="p-md">
+<div class="text-caption text-on-surface-variant mb-xs">24 Oktober 2024</div>
+<h4 class="font-headline-sm text-[20px] text-on-surface mb-sm leading-tight">Pengesahan Warga Baru Tingkat I Tahun 2024</h4>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-md">Prosesi sakral pengesahan warga baru PSHT Ranting Pasirian berjalan khidmat di GOR Lumajang...</p>
+<a class="text-primary font-bold inline-flex items-center gap-xs" href="#">Baca Selengkapnya <span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
+</div>
+</div>
+<!-- News Item 2 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-soft group border border-outline-variant/30">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A formal group meeting in a bright, modern conference room with minimalist furniture. The participants are focused and professional, discussing organizational matters. The lighting is soft and even, creating an atmosphere of institutional trust and sophisticated governance. The color palette is composed of soft whites, light grays, and professional accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT2HJfU1kX8zBAtcDxa5DTLL5Jc9Z6EeJWCWU3h74enQrjHJtOytORNpBiV27XhnNxO_qrNcQ36kGjTxzpfXgjg9fu7zuqoyeRvOB6BCvD2zS0k82uCl518xaqxIbJLRlfgyQSYnxBhDGq2DA0XUeAN9tPn1H4eyrZzS_K_QARL1lJ1fROrTc4YVTCsZjxrLr26NdXVmrWn2uovta8OIMBX0J72NcWvCgWe4Ze_7wOtcIVuY58FZFfkHPGG_nahbwiX-ksdD1vuDh3"/>
+<div class="absolute top-md left-md bg-white/90 backdrop-blur-sm px-sm py-xs rounded text-caption font-bold text-primary">PENGUMUMAN</div>
+</div>
+<div class="p-md">
+<div class="text-caption text-on-surface-variant mb-xs">18 Oktober 2024</div>
+<h4 class="font-headline-sm text-[20px] text-on-surface mb-sm leading-tight">Rapat Koordinasi Persiapan Tes Kenaikan Sabuk</h4>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-md">Pengurus ranting mengadakan rapat penting guna menyusun standarisasi materi tes kenaikan sabuk hijau...</p>
+<a class="text-primary font-bold inline-flex items-center gap-xs" href="#">Baca Selengkapnya <span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
+</div>
+</div>
+<!-- News Item 3 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-soft group border border-outline-variant/30">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A high-quality action photograph of a martial arts competition held in a professional arena. The focus is sharp on the athletes, who demonstrate skill and discipline. The background is slightly blurred with soft stadium lighting, maintaining a clean and professional sports-modern aesthetic. The colors are balanced with the prestigious maroon and white tones of the organization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa0PMGTIkjRjemaYmcwtmntpCBnQs7CLaLwSCOxD2tjMDJK9ssAgubHTwVcLnHmlf8PYgV3xZrQ_roQI0au3yU0VZN0Hf1qUI0-4H_AUZyFG0MNkzC-zoCFtjvhfwAlRJzLLkginNOoAiPUCISHNVlFMkEPS1Yds9dSgZdAQaRDGxMX89CD4nq9HX132rjXIhPzbYTRZKWf4LEMNFtmuR5X0eA2nExYkS7xpjI3y8KAwYD3T6_Tjxkvh6FJ8OKV2D8FOBrtEV4FgLX"/>
+<div class="absolute top-md left-md bg-white/90 backdrop-blur-sm px-sm py-xs rounded text-caption font-bold text-primary">PRESTASI</div>
+</div>
+<div class="p-md">
+<div class="text-caption text-on-surface-variant mb-xs">12 Oktober 2024</div>
+<h4 class="font-headline-sm text-[20px] text-on-surface mb-sm leading-tight">Rayon Condro Raih Juara Umum di Kejurkab Lumajang</h4>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-md">Tim atlet Ranting Pasirian berhasil membawa pulang 5 medali emas pada ajang kejuaraan kabupaten...</p>
+<a class="text-primary font-bold inline-flex items-center gap-xs" href="#">Baca Selengkapnya <span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Galeri (Masonry Grid) -->
+<section class="py-xl max-w-max-width mx-auto px-gutter">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-xl">Galeri Kegiatan</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<div class="space-y-sm">
+<img class="rounded-lg w-full h-40 object-cover shadow-soft" data-alt="A formal photograph showing traditional belt award ceremony. Professional atmosphere, bright lighting, high contrast white and black colors with a touch of maroon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jndqY3YZhZyTHjWKfBYX5YtX3Nk7QODkXSZMCsjHswBDP8EpPgpLzx-P-vbfOlLPLPKQsqLB8HlIv14L0emEn2f6X_fmATWEO2v848ZgMoDS8_ufEQ1JrCcSkaNBgSqMwi5tS0VP0N6CjpfNLZKA66YpBCBeO_quliCLWCBNTly4SLLNSGAbJ12gJfba7iruPY6EQDTOdsMXYjcG-uSM2JS0tsmvJKimmqjHBy17epG4RuvScXQR_Q45jbLxnqVIYqkUWqXg2uYs"/>
+<img class="rounded-lg w-full h-64 object-cover shadow-soft" data-alt="A disciplined training session at dawn, with soft natural light hitting the participants in their uniforms. The mood is calm and professional, clean modern composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdbXoAsyPIhFnPgBWnvgK5aGMYfzauNKcCN4WcmX0wRYlMY6MVnDbpk34APm2z3I2qKZtC7wqewQfZpnGWX5M4srZZuMw_ftfxxIsbxN_6XjsTkUd23bQCEBiMMYj12INLnRQwVG8EROnlfhHt2wqP8mG8QpuOj1yFQS0f_7EL-1xVj3eP_ov3VQ6qgu81JDl5g7RbRtgKisvzHw-N54BNHvMtFCP6stS2KBpQcpNB___AUPJPPZpK7ffEcXOweF8UCcGQB0QlF0v"/>
+</div>
+<div class="space-y-sm">
+<img class="rounded-lg w-full h-64 object-cover shadow-soft" data-alt="Close up of traditional badges and medals displayed on a white marble surface. Sharp focus, professional product photography style, golden and maroon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfa3Zet3eZopE4EbX8UMlGKtRFy0Ra-t-wh7kTuPL789j7F2rC70HbX7I94V1ZlAa-yK-AbtSFXDoX815kDYquRqls95dGZcKcyWsft9myV3S3yeoedTAFvW5Q8lwooeb9Umwcvj2DbS28RxKg9qps0XsewI0vhJgiCnoKfm_hZJep-Z1QtzsitQBI1d6meVM2S0_n-aizAMaBoLQxIFjNU7MAMZ6OvRwsNwJ-RnG0s8iV8gEov6LHvbk-_r6dM_AiXSoxdeCp1JoV"/>
+<img class="rounded-lg w-full h-40 object-cover shadow-soft" data-alt="Athletic training in a modern indoor sports hall. High key lighting, clean architectural lines, sense of speed and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1IWVaXzPQgJCt8jjm0w3PIJ3-vjFOwuo3x_v--tu7xdNe9UzcETDeOCSzBQBQoHkgciq4_Q87xZzuSFdM-WgYbIuTjPSVkDyLMb-Rkyb9IyO3wnk6pvv9HkrPD2gyD1UgZFHszW2ekWKRXx9VctHVqWUVkBvLCYIUtBkBITgSpAXclU7Lr96IiYBjI2NJ0dvTma8YHInlof3JOGS95D5PHsCbPe350k6C7jVYZdKxQ_OZ83HmPhBuZDcZJpRZy7YveVCwxaHQuZjM"/>
+</div>
+<div class="space-y-sm">
+<img class="rounded-lg w-full h-40 object-cover shadow-soft" data-alt="A row of athletes standing in perfect alignment. Institutional symmetry, white uniforms, professional lighting, clean and formal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe25AEFYAaZ-11gD_N8hmUUOYfbIvadO0Q7CNbWkXpceLL-Nvw2otIT_4iurq5s83Rt7IwjPE4Epk5cR74_B7N1icYFR1iSdnCYYFJya3qsWv6JqGDOPpvB3nFMOnuVdyqlNz2IVIHlQNuCRctlWMZgQjlAg4MD04Kf2PS_sC-5AuUT2N33UdBCxuiLsPGJHe__c6yv0r8AFKKpFvkjcrCvg7YgGTHg6wR081BTTpZYGL2hBhKc3tWtCs6dMOT-nJDRHz1HSDqU7Bc"/>
+<img class="rounded-lg w-full h-64 object-cover shadow-soft" data-alt="A high-tech fitness and training center interior with minimalist design. Bright, energetic yet professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz-UvJpeowqWjXn_rSEOsChlhf4x3aPj-9Oe-kAVrEPJDYnaINHPalLa6QZGzwVQIOb6gknI0Dj8i0WXYziOna6-nG6Z9KuMJY9GZtBomqANA5dcOSUOzmCqlumYTISJ_8PtaPEPVkXbTaYFg3KKm9LO1uAAZwe4_g3lelVJ4faqzMQJC9LtSKr6Vs118LxOmqX3PQUK6oIeyaMCN2yBj11ac65NDrBcIIL8E4BsFJn9c-cGaB75zi_HMigklHXGPrMT89xDOfXWc2"/>
+</div>
+<div class="space-y-sm">
+<img class="rounded-lg w-full h-64 object-cover shadow-soft" data-alt="Aerial view of a formal outdoor training camp. Organized rows of participants, beautiful natural light, sense of scale and discipline." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0y5xsb57gI5gurgSUYtIo2kytbfgNLooc3w937-k_OU3bChPxSRvucxUIfDdv7SYeRaYs3ac4vLHAy0asAbMffFznuCLnxyq05Fp8_bbYq_KBwZy019QGo4WBIoNFyRjdPjsTnWxP61draDoC341qaTVkyC-aamuDjeumKN4nvwbjj_cJgC-fyuu9hI9Q53HSwQknpE3jVCwE21NrpVAwYRkz3tSNTtjhfiw9bjobsVDiOgzWO73otWWi_aMA2ciOjFkIdpl51aD6"/>
+<img class="rounded-lg w-full h-40 object-cover shadow-soft" data-alt="Close-up portrait of an athlete focusing before a match. Soft high-end lighting, emotional yet professional tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxDg1SF3qGWitFdKAoBmL-WatbdT70kNHwIalH0Y9kWBKTlaq3y2saf6HdeDUMMzYgF3iJXzC557ZxETcFU2HKKWsOPNeNGoggOf-1SAtXP1Cs9BSgZhvS0II16eo59fy2rGlP18WeQYB-0BYnpebi0S_6BMMRoiiqA37HEl5To69-X9S6ocbX0aBRrdZIvBFHv9DFuRb4zs3t6lCe7o0l3_aNMfAzX0EJRVpaAWG3rxYR78Avu1BVw60Q3S-D-lbn2yOydUfR0-th"/>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant py-xl">
+<div class="max-w-max-width mx-auto px-gutter grid grid-cols-1 md:grid-cols-3 gap-xl">
+<!-- Brand & Contact -->
+<div class="space-y-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-headline-sm" data-icon="account_balance">account_balance</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">PSHT PASIRIAN</span>
+</div>
+<p class="text-body-md text-on-surface-variant">Portal resmi Persaudaraan Setia Hati Terate Ranting Pasirian, Cabang Lumajang - Pusat Madiun.</p>
+<div class="flex gap-sm">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-soft border border-outline-variant/30 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-soft border border-outline-variant/30 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-soft border border-outline-variant/30 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="font-headline-sm text-[20px] text-on-surface mb-md">Tautan Cepat</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Tentang Kami</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Struktur Organisasi</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Jadwal Latihan Terpusat</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pendaftaran Siswa Baru</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a></li>
+</ul>
+</div>
+<!-- Map & Address -->
+<div>
+<h4 class="font-headline-sm text-[20px] text-on-surface mb-md">Lokasi Sekretariat</h4>
+<div class="rounded-xl overflow-hidden h-40 mb-sm shadow-soft border border-outline-variant/30">
+<!-- Map Placeholder -->
+<div class="w-full h-full bg-surface-container-high flex items-center justify-center text-on-surface-variant" data-location="Pasirian, Lumajang" style="">
+<span class="material-symbols-outlined mr-xs">map</span> Lihat di Google Maps
+                    </div>
+</div>
+<p class="text-caption font-caption text-on-surface-variant">
+                    Jl. Raya Pasirian No. 12, Kec. Pasirian, Kab. Lumajang, Jawa Timur 67372
+                </p>
+</div>
+</div>
+<div class="max-w-max-width mx-auto px-gutter mt-xl pt-md border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-caption font-caption text-on-surface-variant opacity-70">© 2024 PSHT Pasirian. All Rights Reserved.</p>
+<div class="flex gap-md">
+<a class="text-caption font-caption text-on-surface-variant hover:text-primary" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-caption font-caption text-on-surface-variant hover:text-primary" href="#">Bantuan</a>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-lg right-lg w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-xl z-[100] active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[32px]">chat</span>
+</a>
+</body></html>
