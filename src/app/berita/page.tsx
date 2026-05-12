@@ -66,19 +66,21 @@ export default function BeritaPage() {
       <main>
 
         {/* Hero Section */}
-        <section className="relative h-[320px] sm:h-[380px] md:h-[400px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[380px] sm:h-[420px] md:h-[460px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img className="w-full h-full object-cover" alt="Warta dan Kegiatan" src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2069&auto=format&fit=crop" />
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-black/55" />
           </div>
-          <div className="max-w-max-width mx-auto px-4 sm:px-gutter relative z-10 w-full text-center flex flex-col items-center">
-            <nav className="flex justify-center mb-2 sm:mb-sm gap-xs text-white/70 text-xs sm:text-label-md">
+          <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-4xl flex flex-col items-center">
+            <nav className="flex justify-center mb-4 gap-xs text-white/60 text-xs sm:text-label-md">
               <a className="hover:text-white transition-colors" href="/">Beranda</a>
               <span>/</span>
-              <span className="text-white">Berita</span>
+              <span className="text-[#E4DCCF]">Berita</span>
             </nav>
-            <h1 className="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white mb-2 sm:mb-md leading-tight">Warta &amp; Kegiatan</h1>
-            <p className="text-sm sm:text-base md:text-body-lg text-white/90 max-w-2xl mx-auto">
+            <h1 className="font-extrabold text-3xl sm:text-5xl md:text-6xl leading-tight mb-4">
+              Warta &amp; Kegiatan
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
               Informasi terkini mengenai prestasi, kegiatan sosial, dan pengumuman resmi dari PSHT Ranting Pasirian.
             </p>
           </div>

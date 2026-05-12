@@ -4,7 +4,7 @@ import { Globe, MessageCircle, Play, Send, Share2 } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[#6b1f1f] via-[#7f1d1d] to-[#6b1f1f] text-white font-sans">
+    <footer className="bg-gradient-to-r from-[#3d5558] via-[#576F72] to-[#3d5558] text-white font-sans">
 
       {/* Main grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-0 px-12 py-12 border-b border-white/10">
@@ -20,21 +20,21 @@ export default function Footer() {
             <a
               href="#"
               aria-label="Facebook"
-              className="w-8 h-8 rounded-md flex items-center justify-center bg-[#1877f2] text-white text-sm hover:opacity-90 transition-opacity"
+              className="w-8 h-8 rounded-md flex items-center justify-center bg-[#576F72] text-white text-sm hover:opacity-90 transition-opacity"
             >
               <MessageCircle className="w-4 h-4" />
             </a>
             <a
               href="#"
               aria-label="Twitter"
-              className="w-8 h-8 rounded-md flex items-center justify-center bg-[#1da1f2] text-white text-sm hover:opacity-90 transition-opacity"
+              className="w-8 h-8 rounded-md flex items-center justify-center bg-[#7D9D9C] text-white text-sm hover:opacity-90 transition-opacity"
             >
               <Send className="w-4 h-4" />
             </a>
             <a
               href="#"
               aria-label="YouTube"
-              className="w-8 h-8 rounded-md flex items-center justify-center bg-[#ff0000] text-white text-sm hover:opacity-90 transition-opacity"
+              className="w-8 h-8 rounded-md flex items-center justify-center bg-[#E4DCCF] text-[#576F72] text-sm hover:opacity-90 transition-opacity"
             >
               <Play className="w-4 h-4" />
             </a>

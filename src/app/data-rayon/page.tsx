@@ -22,9 +22,9 @@ const ALL_RAYONS = [
 const PAGE_SIZE = 6;
 
 const SECTOR_BADGE: Record<string, string> = {
-  Utara: 'bg-blue-50 text-blue-800',
-  Pusat: 'bg-amber-50 text-amber-800',
-  Selatan: 'bg-teal-50 text-teal-800',
+  Utara:   'bg-[#E4DCCF] text-[#576F72]',
+  Pusat:   'bg-[#7D9D9C]/20 text-[#576F72]',
+  Selatan: 'bg-[#576F72]/15 text-[#576F72]',
 };
 
 const SECTORS = ['Utara', 'Pusat', 'Selatan'];
@@ -104,19 +104,21 @@ export default function DataRayonPage() {
       <main>
 
         {/* Hero Section */}
-        <section className="relative h-[320px] sm:h-[380px] md:h-[400px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[380px] sm:h-[420px] md:h-[460px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img className="w-full h-full object-cover" alt="Data Rayon PSHT Pasirian" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCktuaEfTkzXjACJFkfkkZixMF9LY6PaBh3jV9yvPSMxWYJxRBh5ddv_4csQcyoy-dUSqgLmY-iO0eIc4tVP6hXBEnpVIbFQOqNX_GBtud0x6W2B0F61n-9c8xtbBlGFx1gLjfj0Z0USiMqRFiKbYqkr21zHtLn_HGG4_CgG2BrYZxH3zufWJPPkyjnVhWkciVcvG2k4_m2wPmXV2F5cvpDR3xQxLWff9wzqTG5nZagcgpundAjXG8SIq-lCgFkzJoaYOyywvrMw8X9" />
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-black/55" />
           </div>
-          <div className="relative z-10 text-center text-white px-4 sm:px-gutter max-w-3xl flex flex-col items-center">
-            <nav className="flex justify-center mb-2 sm:mb-sm gap-xs text-white/70 text-xs sm:text-label-md">
+          <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-4xl flex flex-col items-center">
+            <nav className="flex justify-center mb-4 gap-xs text-white/60 text-xs sm:text-label-md">
               <a className="hover:text-white transition-colors" href="/">Beranda</a>
               <span>/</span>
-              <span className="text-white">Data Rayon</span>
+              <span className="text-[#E4DCCF]">Data Rayon</span>
             </nav>
-            <h1 className="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white mb-2 sm:mb-md leading-tight">Data Rayon</h1>
-            <p className="text-sm sm:text-base md:text-body-lg text-white/90">
+            <h1 className="font-extrabold text-3xl sm:text-5xl md:text-6xl leading-tight mb-4">
+              Data Rayon
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
               Informasi lengkap mengenai sebaran wilayah latihan, kepengurusan, dan jadwal kegiatan resmi di seluruh wilayah Kecamatan Pasirian.
             </p>
           </div>
@@ -217,7 +219,7 @@ export default function DataRayonPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-xl bg-gradient-to-r from-[#6b1f1f] via-[#7f1d1d] to-[#6b1f1f] relative overflow-hidden">
+        <section className="py-xl bg-gradient-to-r from-[#3d5558] via-[#576F72] to-[#3d5558] relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto px-gutter text-center">
             <span className="inline-block font-label-md text-label-md uppercase tracking-widest text-on-primary/80 border border-white/30 rounded-full px-lg py-xs mb-lg">
               Pendaftaran Siswa Baru

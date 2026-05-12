@@ -10,19 +10,23 @@ export default function ProfilPage() {
       <main>
 
         {/* Hero Section */}
-        <section className="relative h-[320px] sm:h-[380px] md:h-[400px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[380px] sm:h-[420px] md:h-[460px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img className="w-full h-full object-cover" alt="Profil PSHT" src="https://images.unsplash.com/photo-1544098485-2a2ed6da40ba?q=80&w=2070&auto=format&fit=crop" />
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-black/55" />
           </div>
-          <div className="relative z-10 text-center text-white px-4 sm:px-gutter max-w-4xl flex flex-col items-center">
-            <nav className="flex justify-center mb-2 sm:mb-sm gap-xs text-white/70 text-xs sm:text-label-md">
+          <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-4xl flex flex-col items-center">
+            <nav className="flex justify-center mb-4 gap-xs text-white/60 text-xs sm:text-label-md">
               <a className="hover:text-white transition-colors" href="/">Beranda</a>
               <span>/</span>
-              <span className="text-white">Profil</span>
+              <span className="text-[#E4DCCF]">Profil</span>
             </nav>
-            <h1 className="font-display-lg text-2xl sm:text-4xl md:text-display-lg mb-2 sm:mb-md leading-tight">Profil Organisasi</h1>
-            <p className="text-sm sm:text-base md:text-body-lg text-white/90 max-w-2xl mx-auto">Menjaga tradisi, membangun karakter, dan mencetak generasi pesilat yang berbudi luhur melalui disiplin Persaudaraan Setia Hati Terate di Ranting Pasirian.</p>
+            <h1 className="font-extrabold text-3xl sm:text-5xl md:text-6xl leading-tight mb-4">
+              Profil Organisasi
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
+              Menjaga tradisi, membangun karakter, dan mencetak generasi pesilat yang berbudi luhur melalui disiplin Persaudaraan Setia Hati Terate di Ranting Pasirian.
+            </p>
           </div>
         </section>
 

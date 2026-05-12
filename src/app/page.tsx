@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -9,45 +10,60 @@ export default function BerandaPage() {
     <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section */}
-      <header className="relative min-h-[88vh] md:min-h-screen overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            className="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=2070&auto=format&fit=crop"
-            alt="PSHT Ranting Pasirian"
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+     {/* Hero Section */}
+<header className="relative min-h-screen overflow-hidden">
+  <div className="absolute inset-0">
+    <img
+      className="w-full h-full object-cover"
+      src="/images/foto_bareng.jpeg"
+      alt="PSHT Ranting Pasirian"
+    />
+    <div className="absolute inset-0 bg-black/55" />
+  </div>
 
-        <div className="relative z-10 flex items-center min-h-[88vh] md:min-h-screen px-4 sm:px-gutter max-w-max-width mx-auto pt-16 md:pt-20">
-          <div className="bg-primary/60 backdrop-blur-sm rounded-2xl p-5 sm:p-6 md:p-12 max-w-2xl shadow-2xl border border-white/10">
-            <h2 className="text-white text-[11px] sm:text-label-md uppercase tracking-[0.18em] mb-2 opacity-80">
-              Selamat Datang di Website
-            </h2>
-            <h1 className="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white leading-tight mb-4 md:mb-6">
-              PSHT Ranting Pasirian
-            </h1>
-            <p className="text-sm sm:text-base md:text-body-lg text-white/90 leading-relaxed mb-6 md:mb-8">
-              Pusat Informasi, Kegiatan, dan Komunikasi Warga PSHT Ranting Pasirian
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                href="/profil"
-                className="bg-white text-primary hover:bg-surface-container-low px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-bold transition-all hover:-translate-y-0.5 text-center text-sm sm:text-base"
-              >
-                Tentang Kami
-              </Link>
-              <Link
-                href="/data-rayon"
-                className="border border-white/40 text-white hover:bg-white/10 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-bold transition-all hover:-translate-y-0.5 text-center text-sm sm:text-base"
-              >
-                Lihat Rayon
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+  <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 text-center">
+
+    {/* Logo Ranting */}
+    <div className="mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
+      <Image
+        src="/images/psht_logo_ranting.png"
+        alt="Logo PSHT Ranting Pasirian"
+        width={120}
+        height={120}
+        className="object-contain mx-auto"
+        priority
+      />
+    </div>
+
+    <p className="text-white/85 text-sm sm:text-base md:text-lg leading-tight mb-2 max-w-2xl">
+      Selamat Datang di Website
+    </p>
+
+    <h1 className="text-white font-extrabold text-3xl sm:text-5xl md:text-6xl leading-tight mb-3 max-w-4xl">
+      PSHT RANTING PASIRIAN
+    </h1>
+
+    <p className="text-white/85 text-sm sm:text-base md:text-lg leading-tight mb-5 max-w-2xl">
+      Pusat Informasi, Kegiatan, dan Komunikasi Warga PSHT Ranting Pasirian .
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+      <Link
+        href="/profil"
+        className="inline-flex items-center justify-center bg-[#7D9D9C] text-white hover:bg-[#576F72] px-8 py-3 rounded-full font-bold transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#7D9D9C]/30 text-sm sm:text-base"
+      >
+        Tentang Kami
+      </Link>
+
+      <Link
+        href="/data-rayon"
+        className="inline-flex items-center justify-center border-2 border-white/60 text-white hover:bg-white/10 hover:border-white px-8 py-3 rounded-full font-bold transition-all hover:-translate-y-0.5 text-sm sm:text-base"
+      >
+        Lihat Rayon
+      </Link>
+    </div>
+  </div>
+</header>
 
       {/* Statistics */}
       <section className="relative z-20 max-w-max-width mx-auto px-4 sm:px-gutter -mt-12 sm:-mt-16 mb-0">
@@ -86,7 +102,7 @@ export default function BerandaPage() {
           </div>
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/10 rounded-xl translate-x-4 translate-y-4 -z-10 transition-transform group-hover:translate-x-6 group-hover:translate-y-6" />
-            <img className="rounded-xl w-full shadow-2xl shadow-black/20 object-cover h-[450px]" alt="Master Pencak Silat" src="https://images.unsplash.com/photo-1544098485-2a2ed6da40ba?q=80&w=2070&auto=format&fit=crop" />
+            <img className="rounded-xl w-full shadow-2xl shadow-black/20 object-cover h-[450px]" alt="Master Pencak Silat" src="/images/foto_kangmass.png" />
           </div>
         </div>
       </section>
@@ -95,7 +111,7 @@ export default function BerandaPage() {
       <section className="py-xl bg-primary text-on-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-tertiary rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-600 rounded-full blur-[150px]" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#7D9D9C] rounded-full blur-[150px]" />
         </div>
         <div className="max-w-max-width mx-auto px-gutter relative z-10">
           <div className="text-center mb-xl">

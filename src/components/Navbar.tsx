@@ -130,7 +130,7 @@ export default function Navbar() {
           transform: translateX(-50%);
           width: 0;
           height: 2px;
-          background: #D4AF37;
+          background: #7D9D9C;
           border-radius: 2px;
           transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -155,56 +155,61 @@ export default function Navbar() {
       <nav
         ref={navRef}
         id="main-navbar"
-        className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#6b1f1f] via-[#7f1d1d] to-[#6b1f1f] transition-all duration-400 ease-in-out ${scrolled ? 'shadow-lg shadow-black/30' : ''} ${navVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
+        className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-500 ease-in-out ${navVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
       >
-        {/* Garis aksen atas */}
-        <div className="h-[2px] bg-gradient-to-r from-transparent via-amber-400/70 to-transparent" />
-
-        <div className="flex items-center justify-end md:justify-between px-4 sm:px-6 lg:px-8 py-3 max-w-7xl mx-auto relative">
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-10 py-4 max-w-7xl mx-auto">
 
           {/* Logo + Brand */}
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center gap-3 group flex-shrink-0"
+            className="flex items-center gap-3 group flex-shrink-0"
             aria-label="PSHT Pasirian — Beranda"
           >
-            <div className="relative w-10 h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+            <div className="relative w-9 h-9 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
               <Image
-                src="/images/psht_logo.png"
+                src="/images/psht_logo_ranting.png"
                 alt="Logo PSHT"
                 fill
-                sizes="40px"
+                sizes="36px"
                 className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
                 priority
               />
             </div>
             <div className="flex flex-col leading-none">
-              <span className="text-white font-extrabold text-base sm:text-lg tracking-tight uppercase">
+              <span className="text-white font-extrabold text-base tracking-tight uppercase drop-shadow-sm">
                 PSHT
               </span>
-              <span className="text-amber-400 font-semibold text-[9px] sm:text-[10px] tracking-[0.18em] uppercase">
+              <span className="text-[#E4DCCF] font-semibold text-[9px] tracking-[0.18em] uppercase">
                 Ranting Pasirian
               </span>
             </div>
           </Link>
 
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-0.5">
+          {/* Desktop: nav links + CTA */}
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`nav-desktop-link px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-250 ${isActive
-                    ? 'is-active text-white bg-white/10'
-                    : 'text-white/75 hover:text-white hover:bg-white/5'
-                    }`}
+                  className={`nav-desktop-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-250 ${
+                    isActive
+                      ? 'is-active text-white'
+                      : 'text-white/80 hover:text-white'
+                  }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
+            {/* CTA Button */}
+            <Link
+              href="/data-rayon"
+              className="ml-3 px-5 py-2 rounded-full border border-[#7D9D9C] text-[#7D9D9C] text-sm font-semibold hover:bg-[#7D9D9C] hover:text-white transition-all duration-250"
+            >
+              Lihat Rayon
+            </Link>
           </div>
 
           {/* Hamburger button — mobile only */}
@@ -213,12 +218,12 @@ export default function Navbar() {
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-panel"
             onClick={() => setMenuOpen((v) => !v)}
-            className={`md:hidden p-2.5 rounded-lg transition-colors duration-200 ${menuOpen
-              ? 'text-white bg-white/15'
-              : 'text-white/80 hover:text-white hover:bg-white/10'
-              }`}
+            className={`md:hidden p-2.5 rounded-lg transition-colors duration-200 ${
+              menuOpen
+                ? 'text-white bg-white/15'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            }`}
           >
-            {/* Tiga garis — class bar-open di wrapper, bukan button */}
             <div className={`flex flex-col gap-[5px] ${menuOpen ? 'bar-open' : ''}`}>
               <span className="bar" />
               <span className="bar" />
@@ -250,7 +255,7 @@ export default function Navbar() {
             style={{ top: navHeight + 8, zIndex: 50 }}
           >
             {/* Konten menu */}
-            <div className="bg-red-950/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/60 overflow-hidden">
+            <div className="bg-[#576F72]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/60 overflow-hidden">
               <div className="p-2">
 
                 {/* List item navigasi */}
@@ -271,7 +276,7 @@ export default function Navbar() {
                           >
                             <LinkIcon
                               className="w-5 h-5 flex-shrink-0 transition-colors"
-                              style={{ color: isActive ? '#D4AF37' : 'rgba(255,255,255,0.35)' }}
+                              style={{ color: isActive ? '#7D9D9C' : 'rgba(255,255,255,0.35)' }}
                               strokeWidth={2}
                             />
 
@@ -283,7 +288,7 @@ export default function Navbar() {
                             {/* Titik aktif */}
                             {isActive && (
                               <span
-                                className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0"
+                                className="w-1.5 h-1.5 rounded-full bg-[#7D9D9C] flex-shrink-0"
                                 style={{ animation: 'pulseDot 2s ease-in-out infinite' }}
                               />
                             )}
@@ -300,11 +305,11 @@ export default function Navbar() {
 
                 {/* Footer dekoratif di bawah menu */}
                 <div className="mt-5 pt-4 border-t border-white/8 flex items-center justify-center gap-3">
-                  <div className="flex-1 h-px bg-gradient-to-r from-transparent to-amber-400/25" />
+                  <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#7D9D9C]/25" />
                   <span className="text-[10px] text-white/25 uppercase tracking-[0.3em] font-medium whitespace-nowrap">
                     PSHT Pasirian
                   </span>
-                  <div className="flex-1 h-px bg-gradient-to-l from-transparent to-amber-400/25" />
+                  <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#7D9D9C]/25" />
                 </div>
               </div>
             </div>

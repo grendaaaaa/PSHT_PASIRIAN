@@ -1,56 +1,76 @@
 @import "tailwindcss";
 
 @theme {
-  --color-on-tertiary-container: #747676;
-  --color-secondary: #5c5f60;
-  --color-surface-bright: #fcf8f8;
-  --color-on-secondary-fixed-variant: #454748;
-  --color-secondary-fixed: #e1e3e4;
-  --color-error-container: #ffdad6;
-  --color-tertiary: #D4AF37;
-  --color-on-surface: #1c1b1b;
-  --color-tertiary-fixed-dim: #c6c6c7;
-  --color-inverse-surface: #313030;
-  --color-on-tertiary: #ffffff;
-  --color-on-primary-fixed: #1a1c1c;
-  --color-primary-fixed: #e2e2e2;
-  --color-surface-container-high: #ebe7e7;
-  --color-on-secondary-fixed: #191c1d;
-  --color-on-surface-variant: #444748;
-  --color-primary-fixed-dim: #c6c6c7;
-  --color-outline-variant: #c4c7c8;
-  --color-on-secondary-container: #626566;
-  --color-on-primary-fixed-variant: #454747;
-  --color-on-primary: #ffffff;
-  --color-surface-container-low: #f6f3f2;
-  --color-on-primary-container: #747676;
-  --color-on-secondary: #ffffff;
-  --color-on-error-container: #93000a;
-  --color-error: #ba1a1a;
-  --color-surface-container: #f1edec;
-  --color-surface-dim: #ddd9d9;
-  --color-on-error: #ffffff;
-  --color-surface-tint: #5d5f5f;
-  --color-outline: #747878;
-  --color-surface-variant: #e5e2e1;
-  --color-on-tertiary-fixed-variant: #454747;
-  --color-inverse-on-surface: #f4f0ef;
-  --color-surface-container-highest: #e5e2e1;
-  --color-tertiary-container: #ffffff;
-  --color-primary-container: #ffffff;
-  --color-secondary-container: #e1e3e4;
-  --color-surface: #fcf8f8;
+  /* ── Palette ──────────────────────────────────────────────
+     #576F72  teal dark   → primary
+     #7D9D9C  teal light  → secondary / tertiary / accent
+     #E4DCCF  beige       → surface-variant / muted
+     #F0EBE3  off-white   → background / surface
+  ──────────────────────────────────────────────────────── */
+
+  --color-primary:                  #576F72;
+  --color-on-primary:               #ffffff;
+  --color-primary-container:        #c8dfe0;
+  --color-on-primary-container:     #1a3335;
+  --color-primary-fixed:            #c8dfe0;
+  --color-primary-fixed-dim:        #a8c8ca;
+  --color-on-primary-fixed:         #1a3335;
+  --color-on-primary-fixed-variant: #3d5a5d;
+  --color-inverse-primary:          #a8c8ca;
+
+  --color-secondary:                #7D9D9C;
+  --color-on-secondary:             #ffffff;
+  --color-secondary-container:      #d4e8e8;
+  --color-on-secondary-container:   #1e3838;
+  --color-secondary-fixed:          #d4e8e8;
+  --color-secondary-fixed-dim:      #b0cece;
+  --color-on-secondary-fixed:       #1e3838;
+  --color-on-secondary-fixed-variant: #4e7070;
+
+  --color-tertiary:                 #7D9D9C;
+  --color-on-tertiary:              #ffffff;
+  --color-tertiary-container:       #E4DCCF;
+  --color-on-tertiary-container:    #2a2318;
+  --color-tertiary-fixed:           #E4DCCF;
+  --color-tertiary-fixed-dim:       #ccc4b5;
+  --color-on-tertiary-fixed:        #2a2318;
+  --color-on-tertiary-fixed-variant: #5a5040;
+
+  --color-background:               #F0EBE3;
+  --color-on-background:            #1c1a17;
+  --color-surface:                  #F0EBE3;
+  --color-on-surface:               #1c1a17;
+  --color-surface-variant:          #E4DCCF;
+  --color-on-surface-variant:       #4a4438;
+  --color-surface-bright:           #ffffff;
+  --color-surface-dim:              #d8d2c8;
+  --color-surface-tint:             #576F72;
   --color-surface-container-lowest: #ffffff;
-  --color-primary: #7f1d1d;
-  --color-inverse-primary: #c6c6c7;
-  --color-background: #fcf8f8;
-  --color-secondary-fixed-dim: #c5c7c8;
-  --color-on-background: #1c1b1b;
-  --color-on-tertiary-fixed: #1a1c1c;
-  --color-tertiary-fixed: #e2e2e2;
-  --color-accent-gold: #D4AF37;
-  --color-maroon: #7f1d1d;
-  --color-gold: #D4AF37;
+  --color-surface-container-low:    #ece6de;
+  --color-surface-container:        #e4ddd4;
+  --color-surface-container-high:   #dbd4ca;
+  --color-surface-container-highest:#d2cbc0;
+
+  --color-inverse-surface:          #302e2a;
+  --color-inverse-on-surface:       #F0EBE3;
+
+  --color-outline:                  #7a7468;
+  --color-outline-variant:          #ccc4b5;
+
+  --color-error:                    #ba1a1a;
+  --color-on-error:                 #ffffff;
+  --color-error-container:          #ffdad6;
+  --color-on-error-container:       #93000a;
+
+  /* Alias helpers */
+  --color-maroon:                   #576F72;
+  --color-sage:                     #7D9D9C;
+  --color-khaki:                    #E4DCCF;
+  --color-cream:                    #F0EBE3;
+  --color-accent-gold:              #7D9D9C;
+  --color-gold:                     #7D9D9C;
+
+  /* Spacing & typography tokens (unchanged) */
   --spacing-xl: 4rem;
   --spacing-md: 1.5rem;
   --spacing-sm: 1rem;

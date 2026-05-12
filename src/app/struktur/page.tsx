@@ -10,19 +10,23 @@ export default function StrukturPage() {
       <main>
 
         {/* Hero Section */}
-        <section className="relative h-[320px] sm:h-[380px] md:h-[400px] flex items-center justify-center text-center px-4 sm:px-gutter overflow-hidden">
+        <section className="relative h-[380px] sm:h-[420px] md:h-[460px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img className="w-full h-full object-cover" alt="Struktur Organisasi" src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=2070&auto=format&fit=crop" />
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-black/55" />
           </div>
-          <div className="relative z-10 max-w-3xl flex flex-col items-center">
-            <nav className="flex justify-center mb-2 sm:mb-sm gap-xs text-white/70 text-xs sm:text-label-md">
+          <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-4xl flex flex-col items-center">
+            <nav className="flex justify-center mb-4 gap-xs text-white/60 text-xs sm:text-label-md">
               <a className="hover:text-white transition-colors" href="/">Beranda</a>
               <span>/</span>
-              <span className="text-white">Struktur</span>
+              <span className="text-[#E4DCCF]">Struktur</span>
             </nav>
-            <h1 className="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white mb-2 sm:mb-md leading-tight">Struktur Organisasi</h1>
-            <p className="text-sm sm:text-base md:text-body-lg text-white/90">Sinergi kepemimpinan yang berlandaskan persaudaraan dan disiplin untuk mewujudkan visi Persaudaraan Setia Hati Terate Ranting Pasirian.</p>
+            <h1 className="font-extrabold text-3xl sm:text-5xl md:text-6xl leading-tight mb-4">
+              Struktur Organisasi
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
+              Sinergi kepemimpinan yang berlandaskan persaudaraan dan disiplin untuk mewujudkan visi Persaudaraan Setia Hati Terate Ranting Pasirian.
+            </p>
           </div>
         </section>
 
@@ -36,7 +40,7 @@ export default function StrukturPage() {
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-md border-4 border-tertiary">
                   <img alt="Kangmas Supriadi" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2wX_jJsYmPn_GMEazdvTvdHItb_Qh6yUUAXzQ4yMVHhhwgNoDSIUHqtNwu6CSdn_6FWBoFIktz0drySnhZ_7KThk_t63kSggFX4cTzcr9M8rP-g4M6BZB8ZD_VLDCWM06vSNbs4gmqjou5OOMX6LzJqaxrG7h7PeDdArK7P0PavoP3jeTsiSkp3JJrsYhNqkMN9MKJgKMYFCwbOVUgvVA6CmJYkZiHEiFvrGBjFAqtV4TBHufKQop9csjlDDD8-Nt099FLYpNr36B" />
                 </div>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface mb-xs">Kangmas Supriadi</h3>
+                <h3 className="font-headline-sm text-headline-sm text-on-surface mb-xs">Kangmas Lucky anjal</h3>
                 <p className="font-label-md text-label-md text-primary font-bold uppercase tracking-widest mb-md">Ketua Ranting Pasirian</p>
                 <p className="font-body-md text-body-md text-on-surface-variant">Bertanggung jawab penuh atas arah kebijakan dan pengembangan organisasi di wilayah Ranting Pasirian.</p>
               </div>
@@ -45,7 +49,7 @@ export default function StrukturPage() {
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-md border-4 border-outline-variant bg-surface-container flex items-center justify-center">
                   <User className="w-6 h-6 text-on-surface-variant" />
                 </div>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface mb-xs">[Nama Wakil Ketua]</h3>
+                <h3 className="font-headline-sm text-headline-sm text-on-surface mb-xs">Fuad jagal celeng</h3>
                 <p className="font-label-md text-label-md text-primary font-bold uppercase tracking-widest mb-md">Wakil Ketua Ranting</p>
                 <p className="font-body-md text-body-md text-on-surface-variant">Mendampingi Ketua dalam menjalankan roda organisasi dan mengoordinasikan bidang-bidang internal.</p>
               </div>
