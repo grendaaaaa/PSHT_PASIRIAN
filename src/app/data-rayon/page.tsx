@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import { Camera, Clock3, MapPin, MessageCircle, Search, SearchX, User, Users } from 'lucide-react';
+import HeroSection from '../../components/ui/HeroSection';
 
 const ALL_RAYONS = [
   { nama: 'Sememu', sektor: 'Utara', ketua: 'Mas Suharto', jadwal: 'Senin & Kamis, 19.30 - Selesai', lokasi: 'Balai Desa Sememu', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA2xtRptYHmt_X0OAD2e7R9I7jilurdyGuV8K48dURQKIvh6OiMB67znu7euD-CS7AhBmenVhYu3Sa5g_oO9EsgxsfBoZW_pIVH3pAPeHVyuFJpQJ9kz5LQzwNLpcPuIoxiJmL-vas04AIrz9NkG2pU9iBDC-Y5pmlnPQOOkv2kRtQKBne7obx-VqHsI5m3jaR7pZRRiV8M0NV2qL3OUuTB3V6TeSgLs9RZAdIsmnPTuq19igr16HAJ8EDVpwODSIea59NLACeZglpJ' },
@@ -22,9 +21,9 @@ const ALL_RAYONS = [
 const PAGE_SIZE = 6;
 
 const SECTOR_BADGE: Record<string, string> = {
-  Utara:   'bg-[#E4DCCF] text-[#576F72]',
-  Pusat:   'bg-[#7D9D9C]/20 text-[#576F72]',
-  Selatan: 'bg-[#576F72]/15 text-[#576F72]',
+  Utara: 'bg-blue-50 text-blue-800',
+  Pusat: 'bg-amber-50 text-amber-800',
+  Selatan: 'bg-teal-50 text-teal-800',
 };
 
 const SECTORS = ['Utara', 'Pusat', 'Selatan'];
@@ -99,30 +98,17 @@ export default function DataRayonPage() {
   const hasMore = filtered.length > shown;
 
   return (
-    <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
-      <Navbar />
-      <main>
+    <>
 
         {/* Hero Section */}
-        <section className="relative h-[380px] sm:h-[420px] md:h-[460px] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img className="w-full h-full object-cover" alt="Data Rayon PSHT Pasirian" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCktuaEfTkzXjACJFkfkkZixMF9LY6PaBh3jV9yvPSMxWYJxRBh5ddv_4csQcyoy-dUSqgLmY-iO0eIc4tVP6hXBEnpVIbFQOqNX_GBtud0x6W2B0F61n-9c8xtbBlGFx1gLjfj0Z0USiMqRFiKbYqkr21zHtLn_HGG4_CgG2BrYZxH3zufWJPPkyjnVhWkciVcvG2k4_m2wPmXV2F5cvpDR3xQxLWff9wzqTG5nZagcgpundAjXG8SIq-lCgFkzJoaYOyywvrMw8X9" />
-            <div className="absolute inset-0 bg-black/55" />
-          </div>
-          <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-4xl flex flex-col items-center">
-            <nav className="flex justify-center mb-4 gap-xs text-white/60 text-xs sm:text-label-md">
-              <a className="hover:text-white transition-colors" href="/">Beranda</a>
-              <span>/</span>
-              <span className="text-[#E4DCCF]">Data Rayon</span>
-            </nav>
-            <h1 className="font-extrabold text-3xl sm:text-5xl md:text-6xl leading-tight mb-4">
-              Data Rayon
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-              Informasi lengkap mengenai sebaran wilayah latihan, kepengurusan, dan jadwal kegiatan resmi di seluruh wilayah Kecamatan Pasirian.
-            </p>
-          </div>
-        </section>
+        <HeroSection
+          title="Data Rayon"
+          description="Informasi lengkap mengenai sebaran wilayah latihan, kepengurusan, dan jadwal kegiatan resmi di seluruh wilayah Kecamatan Pasirian."
+          imageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuCktuaEfTkzXjACJFkfkkZixMF9LY6PaBh3jV9yvPSMxWYJxRBh5ddv_4csQcyoy-dUSqgLmY-iO0eIc4tVP6hXBEnpVIbFQOqNX_GBtud0x6W2B0F61n-9c8xtbBlGFx1gLjfj0Z0USiMqRFiKbYqkr21zHtLn_HGG4_CgG2BrYZxH3zufWJPPkyjnVhWkciVcvG2k4_m2wPmXV2F5cvpDR3xQxLWff9wzqTG5nZagcgpundAjXG8SIq-lCgFkzJoaYOyywvrMw8X9"
+          imageAlt="Data Rayon PSHT Pasirian"
+          breadcrumbs={[{ label: 'Beranda', href: '/' }, { label: 'Data Rayon' }]}
+          maxWidthClass="max-w-3xl"
+        />
 
         {/* Statistics */}
         <section className="relative z-20 -mt-14 sm:-mt-16 md:-mt-20 pt-0 pb-sm sm:pb-md bg-transparent">
@@ -219,7 +205,7 @@ export default function DataRayonPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-xl bg-gradient-to-r from-[#3d5558] via-[#576F72] to-[#3d5558] relative overflow-hidden">
+        <section className="py-xl bg-gradient-to-r from-[#6b1f1f] via-[#7f1d1d] to-[#6b1f1f] relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto px-gutter text-center">
             <span className="inline-block font-label-md text-label-md uppercase tracking-widest text-on-primary/80 border border-white/30 rounded-full px-lg py-xs mb-lg">
               Pendaftaran Siswa Baru
@@ -232,8 +218,6 @@ export default function DataRayonPage() {
           </div>
         </section>
 
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 }
