@@ -1,25 +1,42 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { ArrowRight, Dumbbell, Handshake, History, MapPin, Palette, Shield, Sparkles, Trophy, Users } from 'lucide-react';
 
+const STATISTICS = [
+  { number: "15+", label: "Rayon Aktif", icon: MapPin },
+  { number: "1.200+", label: "Siswa & Warga", icon: Users },
+  { number: "45+", label: "Prestasi Daerah", icon: Trophy },
+  { number: "1922", label: "Tahun Berdiri", icon: History },
+];
+
+const PILAR_PSHT = [
+  { icon: Handshake, title: "Persaudaraan", desc: "Ikatan batin yang kuat tanpa memandang suku, agama, dan status sosial." },
+  { icon: Dumbbell, title: "Olahraga", desc: "Membangun kebugaran jasmani sebagai fondasi diri yang kuat dan sehat." },
+  { icon: Palette, title: "Seni", desc: "Keindahan gerakan Pencak Silat yang menjadi warisan budaya nusantara." },
+  { icon: Shield, title: "Beladiri", desc: "Kemampuan melindungi diri dan orang lain dengan teknik yang terlatih." },
+  { icon: Sparkles, title: "Kerohanian", desc: "Pembinaan spiritual untuk keseimbangan lahir dan batin." },
+];
+
+const GALLERY_IMAGES = [
+  "https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=500&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1544098485-2a2ed6da40ba?q=80&w=500&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1576485290814-1c72aa4faa8e?q=80&w=500&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=500&auto=format&fit=crop",
+];
 export default function BerandaPage() {
   return (
-    <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
-      <Navbar />
-
-     {/* Hero Section */}
-<header className="relative min-h-screen overflow-hidden">
-  <div className="absolute inset-0">
-    <img
-      className="w-full h-full object-cover"
-      src="/images/foto_bareng.jpeg"
-      alt="PSHT Ranting Pasirian"
-    />
-    <div className="absolute inset-0 bg-black/55" />
-  </div>
+    <>
+      {/* Hero Section */}
+      <header className="relative min-h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            className="w-full h-full object-cover"
+            src="/images/foto_bareng.jpeg"
+            alt="PSHT Ranting Pasirian"
+          />
+          <div className="absolute inset-0 bg-black/55" />
+        </div>
 
   <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 text-center">
 
@@ -68,12 +85,7 @@ export default function BerandaPage() {
       {/* Statistics */}
       <section className="relative z-20 max-w-max-width mx-auto px-4 sm:px-gutter -mt-12 sm:-mt-16 mb-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-md">
-          {[
-            { number: "15+", label: "Rayon Aktif", icon: MapPin },
-            { number: "1.200+", label: "Siswa & Warga", icon: Users },
-            { number: "45+", label: "Prestasi Daerah", icon: Trophy },
-            { number: "1922", label: "Tahun Berdiri", icon: History },
-          ].map((stat, idx) => (
+          {STATISTICS.map((stat, idx) => (
             <div key={idx} className="bg-surface p-4 sm:p-6 md:p-8 rounded-xl shadow-xl shadow-black/10 border border-outline-variant/30 text-center hover:-translate-y-1 transition-all duration-300 group">
               <stat.icon className="w-6 h-6 text-primary/20 mb-sm mx-auto block group-hover:text-primary/40 transition-colors" />
               <span className="block text-primary font-bold text-xl sm:text-2xl md:text-headline-md mb-xs">{stat.number}</span>
@@ -119,13 +131,7 @@ export default function BerandaPage() {
             <h2 className="font-headline-md text-headline-md">Pilar Ajaran PSHT</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-md">
-            {[
-              { icon: Handshake, title: "Persaudaraan", desc: "Ikatan batin yang kuat tanpa memandang suku, agama, dan status sosial." },
-              { icon: Dumbbell, title: "Olahraga", desc: "Membangun kebugaran jasmani sebagai fondasi diri yang kuat dan sehat." },
-              { icon: Palette, title: "Seni", desc: "Keindahan gerakan Pencak Silat yang menjadi warisan budaya nusantara." },
-              { icon: Shield, title: "Beladiri", desc: "Kemampuan melindungi diri dan orang lain dengan teknik yang terlatih." },
-              { icon: Sparkles, title: "Kerohanian", desc: "Pembinaan spiritual untuk keseimbangan lahir dan batin." },
-            ].map((pilar, idx) => (
+            {PILAR_PSHT.map((pilar, idx) => (
               <div
                 key={idx}
                 className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-md text-left sm:text-center hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start sm:items-center shadow-lg shadow-black/20"
@@ -170,12 +176,7 @@ export default function BerandaPage() {
             <p className="font-body-md text-body-md text-on-surface-variant max-w-[600px] w-full mx-auto">Momen-momen berharga dalam kegiatan PSHT Ranting Pasirian.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
-            {[
-              "https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=500&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1544098485-2a2ed6da40ba?q=80&w=500&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1576485290814-1c72aa4faa8e?q=80&w=500&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=500&auto=format&fit=crop",
-            ].map((src, idx) => (
+            {GALLERY_IMAGES.map((src, idx) => (
               <div key={idx} className="overflow-hidden rounded-xl group cursor-pointer shadow-sm border border-outline-variant/30">
                 <img className="aspect-square w-full object-cover group-hover:scale-110 transition-transform duration-500" alt={`Galeri ${idx + 1}`} src={src} />
               </div>
@@ -184,7 +185,6 @@ export default function BerandaPage() {
         </div>
       </section>
 
-      <Footer />
-    </div>
+    </>
   );
 }

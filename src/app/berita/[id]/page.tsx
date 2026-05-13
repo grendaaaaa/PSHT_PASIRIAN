@@ -1,8 +1,6 @@
 "use client";
 
 import React, { use } from 'react';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { POSTS } from '../../../data/berita';
@@ -19,9 +17,7 @@ export default function DetailBerita({ params }: { params: Promise<{ id: string 
   }
 
   return (
-    <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
-      <Navbar />
-      <main>
+    <>
         {/* Article Header */}
         <section className="relative h-[340px] sm:h-[400px] md:h-[450px] flex items-end justify-start overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -62,8 +58,6 @@ export default function DetailBerita({ params }: { params: Promise<{ id: string 
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 }
