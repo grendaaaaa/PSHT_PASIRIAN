@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, copy `.env.example` to `.env.local` and fill in your Supabase values:
+
+```bash
+cp .env.example .env.local
+```
+
+On Windows PowerShell:
+
+```powershell
+copy .env.example .env.local
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
