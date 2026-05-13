@@ -1,19 +1,49 @@
 "use client";
 
-import React, { use } from 'react';
+import React, { useEffect, useState, use } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { POSTS } from '../../../data/berita';
-import { ArrowLeft, Bookmark, CalendarDays, Share2 } from 'lucide-react';
+import { ArrowLeft, Bookmark, CalendarDays, Share2, Loader2 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export default function DetailBerita({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
-  const id = Number(resolvedParams.id);
-  
-  const article = POSTS.find(p => p.id === id);
+  const [article, setArticle] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      let query = supabase.from('berita').select('*');
+      
+      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(resolvedParams.id);
+      
+      if (isUUID) {
+        query = query.eq('id', resolvedParams.id);
+      } else {
+        query = query.eq('slug', resolvedParams.id);
+      }
+
+      const { data } = await query.single();
+      setArticle(data);
+      setLoading(false);
+    };
+    fetchArticle();
+  }, [resolvedParams.id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   if (!article) {
-    notFound();
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <p>Berita tidak ditemukan.</p>
+      </div>
+    );
   }
 
   return (
@@ -21,13 +51,13 @@ export default function DetailBerita({ params }: { params: Promise<{ id: string 
         {/* Article Header */}
         <section className="relative h-[340px] sm:h-[400px] md:h-[450px] flex items-end justify-start overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img className="w-full h-full object-cover" alt={article.judul} src={article.img} />
+            <img className="w-full h-full object-cover" alt={article.judul} src={article.image_url || 'https://via.placeholder.com/1200x600'} />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
           </div>
           <div className="max-w-4xl mx-auto px-4 sm:px-gutter relative z-10 w-full pb-lg sm:pb-xl">
             <div className="flex items-center gap-xs sm:gap-sm mb-sm sm:mb-md flex-wrap">
-              <span className="bg-primary text-on-primary px-3 py-1 rounded text-caption font-bold">{article.kategori}</span>
-              <span className="text-white/80 text-xs sm:text-label-md flex items-center gap-1"><CalendarDays className="w-4 h-4" /> {article.tanggal}</span>
+              <span className="bg-primary text-on-primary px-3 py-1 rounded text-caption font-bold">Utama</span>
+              <span className="text-white/80 text-xs sm:text-label-md flex items-center gap-1"><CalendarDays className="w-4 h-4" /> {article.published_at ? new Date(article.published_at).toLocaleDateString('id-ID') : '-'}</span>
             </div>
             <h1 className="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white leading-tight mb-sm sm:mb-md">
               {article.judul}

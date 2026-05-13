@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Dumbbell, Handshake, History, MapPin, Palette, Shield, Sparkles, Trophy, Users } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 const STATISTICS = [
   { number: "15+", label: "Rayon Aktif", icon: MapPin },
@@ -24,7 +25,22 @@ const GALLERY_IMAGES = [
   "https://images.unsplash.com/photo-1576485290814-1c72aa4faa8e?q=80&w=500&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=500&auto=format&fit=crop",
 ];
-export default function BerandaPage() {
+export default async function BerandaPage() {
+  const [{ data: gallery }, { data: statsData }] = await Promise.all([
+    supabase.from('galeri').select('*').order('created_at', { ascending: false }),
+    supabase.from('statistik_ranting').select('*')
+  ]);
+
+  const galleryImages = gallery || [];
+  const s = statsData?.[0] || { total_warga: 0, total_siswa: 0, total_prestasi: 0, total_rayon: 0 };
+
+  const dynamicStats = [
+    { number: `${s.total_rayon || 0}`, label: "Rayon Aktif", icon: MapPin },
+    { number: `${(s.total_warga || 0) + (s.total_siswa || 0)}+`, label: "Siswa & Warga", icon: Users },
+    { number: `${s.total_prestasi || 0}+`, label: "Prestasi Daerah", icon: Trophy },
+    { number: "1922", label: "Tahun Berdiri", icon: History },
+  ];
+
   return (
     <>
       {/* Hero Section */}
@@ -85,8 +101,8 @@ export default function BerandaPage() {
       {/* Statistics */}
       <section className="relative z-20 max-w-max-width mx-auto px-4 sm:px-gutter -mt-12 sm:-mt-16 mb-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-md">
-          {STATISTICS.map((stat, idx) => (
-            <div key={idx} className="bg-surface p-4 sm:p-6 md:p-8 rounded-xl shadow-xl shadow-black/10 border border-outline-variant/30 text-center hover:-translate-y-1 transition-all duration-300 group">
+          {dynamicStats.map((stat, idx) => (
+            <div key={idx} className="bg-surface-bright p-4 sm:p-6 md:p-8 rounded-xl shadow-xl shadow-black/5 border border-outline-variant/40 text-center hover:-translate-y-1 transition-all duration-300 group">
               <stat.icon className="w-6 h-6 text-primary/20 mb-sm mx-auto block group-hover:text-primary/40 transition-colors" />
               <span className="block text-primary font-bold text-xl sm:text-2xl md:text-headline-md mb-xs">{stat.number}</span>
               <span className="text-on-surface-variant text-[11px] sm:text-label-md uppercase tracking-wider">{stat.label}</span>
@@ -130,11 +146,11 @@ export default function BerandaPage() {
             <span className="text-tertiary font-label-md text-label-md uppercase tracking-widest mb-3 block">Lima Aspek Utama</span>
             <h2 className="font-headline-md text-headline-md">Pilar Ajaran PSHT</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-md">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-md">
             {PILAR_PSHT.map((pilar, idx) => (
               <div
                 key={idx}
-                className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-md text-left sm:text-center hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start sm:items-center shadow-lg shadow-black/20"
+                className="bg-primary-container/10 border border-white/10 rounded-xl p-3 sm:p-md text-left sm:text-center hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start sm:items-center shadow-lg shadow-black/20"
               >
                 <div className="w-11 h-11 sm:w-12 sm:h-12 mb-3 sm:mb-md rounded-xl bg-tertiary/10 flex items-center justify-center group-hover:bg-tertiary/20 transition-colors shrink-0">
                   <pilar.icon className="w-6 h-6 text-tertiary" />
@@ -152,9 +168,9 @@ export default function BerandaPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-full bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
         <div className="max-w-3xl mx-auto px-gutter relative z-10">
           <span className="text-tertiary font-label-md text-label-md uppercase tracking-widest mb-3 block">Pusat Pelatihan</span>
-          <h2 className="font-headline-md text-headline-md text-primary mb-md">Tersebar di 30+ Rayon</h2>
+          <h2 className="font-headline-md text-headline-md text-primary mb-md">Tersebar di {s.total_rayon || 0}+ Rayon</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed">
-            PSHT Ranting Pasirian saat ini menaungi puluhan rayon aktif yang tersebar di berbagai desa.
+            PSHT Ranting Pasirian saat ini menaungi {s.total_rayon || 0} rayon aktif yang tersebar di berbagai desa.
             Temukan lokasi tempat latihan atau pusat pelatihan terdekat dari tempat tinggal Anda untuk bergabung bersama kami.
           </p>
           <Link
@@ -167,20 +183,45 @@ export default function BerandaPage() {
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="py-xl bg-surface">
-        <div className="max-w-max-width mx-auto px-gutter">
-          <div className="text-center mb-xl">
-            <span className="text-tertiary font-label-md text-label-md uppercase tracking-widest mb-3 block">Dokumentasi</span>
-            <h2 className="font-headline-md text-headline-md text-primary mb-xs">Galeri Foto</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant max-w-[600px] w-full mx-auto">Momen-momen berharga dalam kegiatan PSHT Ranting Pasirian.</p>
+      {/* Gallery Slider */}
+      <section className="py-xl bg-surface overflow-hidden">
+        <div className="max-w-max-width mx-auto px-gutter mb-lg">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-md">
+            <div>
+              <span className="text-tertiary font-label-md text-label-md uppercase tracking-widest mb-3 block">Dokumentasi</span>
+              <h2 className="font-headline-md text-headline-md text-primary">Galeri Foto Ranting</h2>
+            </div>
+            <div className="flex gap-2 pb-1">
+              <div className="h-1 w-12 bg-primary rounded-full"></div>
+              <div className="h-1 w-4 bg-outline-variant rounded-full"></div>
+              <div className="h-1 w-4 bg-outline-variant rounded-full"></div>
+            </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
-            {GALLERY_IMAGES.map((src, idx) => (
-              <div key={idx} className="overflow-hidden rounded-xl group cursor-pointer shadow-sm border border-outline-variant/30">
-                <img className="aspect-square w-full object-cover group-hover:scale-110 transition-transform duration-500" alt={`Galeri ${idx + 1}`} src={src} />
+        </div>
+
+        {/* Horizontal Slider Container */}
+        <div className="relative">
+          <div className="flex overflow-x-auto pb-8 pt-4 gap-4 px-gutter snap-x snap-mandatory scrollbar-hide no-scrollbar">
+            {galleryImages.length > 0 ? (
+              galleryImages.map((img: any, idx: number) => (
+                <div 
+                  key={img.id || idx} 
+                  className="flex-none w-[280px] sm:w-[400px] aspect-[4/3] rounded-2xl overflow-hidden snap-center shadow-xl shadow-black/10 border border-outline-variant/30 group"
+                >
+                  <img 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    alt="Dokumentasi PSHT" 
+                    src={img.image_url} 
+                  />
+                </div>
+              ))
+            ) : (
+              <div className="w-full py-xl text-center text-on-surface-variant font-body-md">
+                Belum ada foto dokumentasi.
               </div>
-            ))}
+            )}
+            {/* Spacer for padding at the end of scroll */}
+            <div className="flex-none w-px h-full"></div>
           </div>
         </div>
       </section>

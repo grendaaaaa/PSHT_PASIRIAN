@@ -2,25 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ChevronLeft, ChevronRight, Search, SearchX, X } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Search, SearchX, X, Loader2 } from 'lucide-react';
 import HeroSection from '../../components/ui/HeroSection';
+import { supabase } from '@/lib/supabase';
 
-import { POSTS } from '../../data/berita';
-
-const POPULAR = [
-  {
-    id: 7,
-    tanggal: '10 Mei 2024',
-    judul: 'Sejarah Singkat PSHT di Wilayah Pasirian',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcgZd5w5VdBzd7r_KTvhZWcLg81oFEy93_tQDMQJ4ViaSzN5hpv55grzLPTfmx3fbRKS6IQ4_T1lvwG4n7K65-vi0kyfK9ST1GpDXdXv7lpqc47WeRaR4IxxaE4y4QkUUr1aM4CCi1L3PoexeG1Nh_fjSrqte3JkABSZVi4JfOS3wQq60IB3f8PCvGjnpBOd3jjPK46iNW1Ww44ymQpPKL9yfad2pF_flRzzqvL8ozGXbB-vCndI3zbAwQzDeVQmJI9VVRj7Fwum6z',
-  },
-  {
-    id: 8,
-    tanggal: '05 Mei 2024',
-    judul: 'Tips Persiapan Fisik Sebelum Tes Kenaikan Tingkat',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCp3Z5sfFAIZckEhmJvk4ToX2UIw_QFZiNIoG2cFiI8vg3WRWC1XALHkUGeHvtpLU_cyE7MdBHRujf70RKaBMD-21JJIWFORwCapn9a2HMc_1RrDcOdg8ImkD47DssHnP8zsxrs2VNsNNTjClleifAtGixNuiNFqZ8n_1dkxvst-WfBBSZ95zgnajyPf4nFKIt-jQch85-tCq66C04Ybkb8HA3I4dXSV_Fm6Wx5nJLFTOQoxVNBUxvWTeSE242FHCYrwrvOu-dDJvG3',
-  },
-];
+// Remove static POPULAR array as we'll use dynamic data from 'posts' state
 
 const KATEGORI_LIST = [
   { label: 'Semua Berita', value: '' },
@@ -36,14 +22,30 @@ export default function BeritaPage() {
   const [searchInput, setSearchInput] = useState('');
   const [activeKat, setActiveKat] = useState('');
   const [page, setPage] = useState(1);
+  
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const nonFeatured = POSTS.filter(p => !p.featured);
-  const featured = POSTS.find(p => p.featured)!;
+  React.useEffect(() => {
+    const fetchBerita = async () => {
+      setLoading(true);
+      const { data } = await supabase
+        .from('berita')
+        .select('*')
+        .order('published_at', { ascending: false });
+      setPosts(data || []);
+      setLoading(false);
+    };
+    fetchBerita();
+  }, []);
+
+  const nonFeatured = posts.filter(p => p.is_featured !== 'true' && p.is_featured !== true);
+  const featured = posts.find(p => p.is_featured === 'true' || p.is_featured === true);
 
   const filtered = nonFeatured.filter(p => {
-    const matchKat = !activeKat || p.cat === activeKat;
-    const matchSearch = !search || p.judul.toLowerCase().includes(search.toLowerCase());
-    return matchKat && matchSearch;
+    // const matchKat = !activeKat || p.kategori_id === activeKat; // Simplified for now
+    const matchSearch = !search || p.judul?.toLowerCase().includes(search.toLowerCase());
+    return matchSearch;
   });
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
@@ -58,6 +60,14 @@ export default function BeritaPage() {
     setActiveKat(val);
     setPage(1);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -134,20 +144,22 @@ export default function BeritaPage() {
                         <img
                           alt="Featured News"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          src={featured.img}
+                          src={featured.image_url || 'https://via.placeholder.com/800x400'}
                         />
                         <div className="absolute top-4 left-4 bg-primary text-on-primary px-sm py-1 rounded font-label-md text-caption font-bold">
-                          {featured.kategori}
+                          Utama
                         </div>
                       </div>
                       <div className="p-lg flex flex-col justify-center">
-                      <p className="font-label-md text-label-md text-on-surface-variant mb-xs">{featured.tanggal}</p>
+                      <p className="font-label-md text-label-md text-on-surface-variant mb-xs">
+                        {featured.published_at ? new Date(featured.published_at).toLocaleDateString('id-ID') : '-'}
+                      </p>
                         <h2 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors leading-tight mb-md">
                           {featured.judul}
                         </h2>
                         <p className="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-lg">{featured.ringkasan}</p>
                         <Link
-                          href={`/berita/${featured.id}`}
+                          href={`/berita/${featured.slug || featured.id}`}
                           className="text-primary font-bold flex items-center gap-xs hover:gap-sm transition-all font-label-md text-label-md w-fit"
                         >
                           Baca Selengkapnya
@@ -160,25 +172,24 @@ export default function BeritaPage() {
 
                 {/* News Grid */}
                 {paginated.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-md">
                     {paginated.map(post => (
                       <Link
                         key={post.id}
-                        href={`/berita/${post.id}`}
-                        className="bg-surface rounded-xl overflow-hidden shadow-md shadow-black/10 border border-outline-variant/30 group cursor-pointer hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 block"
+                        href={`/berita/${post.slug || post.id}`}
+                        className="group bg-surface-bright rounded-xl border border-outline-variant/40 overflow-hidden shadow-md shadow-black/5 hover:shadow-xl hover:shadow-black/15 transition-all duration-300 block"
                       >
                         <div className="relative h-48 overflow-hidden">
                           <img
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            src={post.img}
+                            src={post.image_url || 'https://via.placeholder.com/400x300'}
                             alt={post.judul}
                           />
-                          <div className="absolute top-4 left-4 bg-primary text-on-primary px-sm py-1 rounded font-label-md text-caption font-bold">
-                            {post.kategori}
-                          </div>
                         </div>
                         <div className="p-md">
-                          <p className="font-label-md text-label-md text-on-surface-variant mb-xs">{post.tanggal}</p>
+                          <p className="font-label-md text-label-md text-on-surface-variant mb-xs">
+                            {post.published_at ? new Date(post.published_at).toLocaleDateString('id-ID') : '-'}
+                          </p>
                           <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors leading-tight mb-sm">
                             {post.judul}
                           </h3>
@@ -233,25 +244,27 @@ export default function BeritaPage() {
               <aside className="lg:col-span-4 space-y-xl">
 
                 {/* Popular Posts */}
-                <div className="bg-surface p-lg rounded-xl shadow-md shadow-black/10 border border-outline-variant/30">
-                  <h4 className="font-label-md text-label-md text-primary font-bold mb-md uppercase tracking-widest">Berita Terpopuler</h4>
+                <div className="bg-surface-bright p-lg rounded-xl shadow-md shadow-black/5 border border-outline-variant/40">
+                  <h4 className="font-headline-sm text-on-surface mb-md pb-xs border-b border-outline-variant/30">Berita Populer</h4>
                   <div className="space-y-md">
-                    {POPULAR.map((p, i) => (
-                      <Link
+                    {posts.slice(0, 4).map((p, i) => (
+                        <Link
                         key={i}
-                        href={`/berita/${p.id}`}
+                        href={`/berita/${p.slug || p.id}`}
                         className="flex gap-md group w-full text-left"
                       >
                         <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-outline-variant/30">
                           <img
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                            src={p.img}
+                            src={p.image_url || 'https://via.placeholder.com/150'}
                             alt={p.judul}
                           />
                         </div>
                         <div>
-                          <span className="font-label-md text-caption text-on-surface-variant block">{p.tanggal}</span>
-                          <h5 className="font-label-md text-label-md font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+                          <span className="font-label-md text-[10px] text-on-surface-variant block uppercase tracking-wider">
+                            {p.published_at ? new Date(p.published_at).toLocaleDateString('id-ID') : '-'}
+                          </span>
+                          <h5 className="font-label-md text-sm font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2 leading-snug">
                             {p.judul}
                           </h5>
                         </div>

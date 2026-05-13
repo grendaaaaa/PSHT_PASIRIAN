@@ -76,6 +76,8 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
+  if (pathname.startsWith('/admin')) return null;
+
   return (
     <>
       <style jsx global>{`
@@ -203,13 +205,7 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            {/* CTA Button */}
-            <Link
-              href="/data-rayon"
-              className="ml-3 px-5 py-2 rounded-full border border-[#7D9D9C] text-[#7D9D9C] text-sm font-semibold hover:bg-[#7D9D9C] hover:text-white transition-all duration-250"
-            >
-              Lihat Rayon
-            </Link>
+
           </div>
 
           {/* Hamburger button — mobile only */}

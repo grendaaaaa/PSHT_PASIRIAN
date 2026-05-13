@@ -61,7 +61,7 @@ export default function ProfilPage() {
                 {/* Event 1 */}
                 <div className="relative flex flex-col md:flex-row md:items-center md:justify-between">
                   <div className="absolute -left-[2.35rem] top-2 w-4 h-4 rounded-full bg-primary border-4 border-surface-container-low md:hidden"></div>
-                  <div className="md:w-[45%] bg-surface p-lg rounded-xl shadow-md shadow-black/10 hover:shadow-lg hover:shadow-black/15 transition-shadow duration-300 border border-outline-variant/30">
+                  <div className="md:w-[45%] bg-surface-bright p-lg rounded-xl shadow-md shadow-black/5 hover:shadow-lg hover:shadow-black/15 transition-shadow duration-300 border border-outline-variant/40">
                     <span className="text-tertiary font-bold mb-xs block font-label-md text-label-md">1980 — Inisiasi</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary mb-xs">Awal Mula Pergerakan</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">Pembentukan embrio latihan pertama di wilayah Pasirian oleh para tokoh perintis yang membawa semangat dari pusat.</p>
@@ -75,7 +75,7 @@ export default function ProfilPage() {
                   <div className="absolute -left-[2.35rem] top-2 w-4 h-4 rounded-full bg-primary border-4 border-surface-container-low md:hidden"></div>
                   <div className="hidden md:block md:w-[45%] md:order-1"></div>
                   <div className="hidden md:block w-4 h-4 rounded-full bg-primary border-4 border-surface-container-low z-10 md:order-2"></div>
-                  <div className="md:w-[45%] md:order-3 bg-surface p-lg rounded-xl shadow-md shadow-black/10 hover:shadow-lg hover:shadow-black/15 transition-shadow duration-300 border border-outline-variant/30">
+                  <div className="md:w-[45%] md:order-3 bg-surface-bright p-lg rounded-xl shadow-md shadow-black/5 hover:shadow-lg hover:shadow-black/15 transition-shadow duration-300 border border-outline-variant/40">
                     <span className="text-tertiary font-bold mb-xs block font-label-md text-label-md">1995 — Ekspansi</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary mb-xs">Peresmian Ranting Pasirian</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">Pengukuhan resmi sebagai Ranting di bawah naungan Cabang, menandai era administrasi yang lebih terstruktur.</p>
@@ -85,7 +85,7 @@ export default function ProfilPage() {
                 {/* Event 3 */}
                 <div className="relative flex flex-col md:flex-row md:items-center md:justify-between">
                   <div className="absolute -left-[2.35rem] top-2 w-4 h-4 rounded-full bg-primary border-4 border-surface-container-low md:hidden"></div>
-                  <div className="md:w-[45%] bg-surface p-lg rounded-xl shadow-md shadow-black/10 hover:shadow-lg hover:shadow-black/15 transition-shadow duration-300 border border-outline-variant/30">
+                  <div className="md:w-[45%] bg-surface-bright p-lg rounded-xl shadow-md shadow-black/5 hover:shadow-lg hover:shadow-black/15 transition-shadow duration-300 border border-outline-variant/40">
                     <span className="text-tertiary font-bold mb-xs block font-label-md text-label-md">2010 — Prestasi</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary mb-xs">Era Keemasan Kompetisi</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">Pencapaian luar biasa atlet Ranting Pasirian di tingkat kabupaten dan provinsi, memperkuat reputasi sebagai pusat pelatihan berkualitas.</p>
@@ -100,52 +100,47 @@ export default function ProfilPage() {
         </section>
 
         {/* Visi & Misi Section */}
-        <section className="py-xl bg-surface">
-          <div className="max-w-max-width mx-auto px-gutter">
-            <div className="grid md:grid-cols-2 gap-lg">
+        <section className="py-xl bg-surface-container-low/50">
+          <div className="max-w-4xl mx-auto px-gutter">
+            <div className="grid md:grid-cols-2 gap-md">
               {/* Visi Card */}
-              <div className="bg-surface p-xl rounded-xl border border-outline-variant/30 shadow-md shadow-black/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-lg opacity-5 group-hover:opacity-10 transition-opacity">
+              <div className="bg-surface-bright p-lg rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-500 relative overflow-hidden group">
+                <div className="absolute -top-10 -right-10 p-lg opacity-5 group-hover:opacity-10 transition-opacity">
                   <Eye className="w-40 h-40" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-md text-primary">
                     <Eye className="w-6 h-6" />
                   </div>
-                  <h2 className="font-headline-sm text-headline-sm text-primary mb-sm">Visi Kami</h2>
-                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  <h2 className="font-headline-sm text-lg text-primary font-bold mb-sm">Visi Kami</h2>
+                  <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
                     Menjadi pusat unggulan pendidikan karakter dan pelestarian pencak silat yang melahirkan pendekar berbudi luhur, berprestasi, dan bermanfaat bagi masyarakat Pasirian.
                   </p>
                 </div>
               </div>
 
               {/* Misi Card */}
-              <div className="bg-surface p-xl rounded-xl border border-outline-variant/30 shadow-md shadow-black/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-lg opacity-5 group-hover:opacity-10 transition-opacity">
+              <div className="bg-surface-bright p-lg rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-500 relative overflow-hidden group">
+                <div className="absolute -top-10 -right-10 p-lg opacity-5 group-hover:opacity-10 transition-opacity">
                   <Rocket className="w-40 h-40" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-md text-primary">
                     <Rocket className="w-6 h-6" />
                   </div>
-                  <h2 className="font-headline-sm text-headline-sm text-primary mb-sm">Misi Kami</h2>
-                  <ul className="space-y-sm">
-                    <li className="flex items-start gap-xs">
-                      <CircleCheck className="w-5 h-5 text-tertiary mt-0.5 shrink-0" />
-                      <span className="text-on-surface-variant font-body-md text-body-md">Menyelenggarakan pelatihan pencak silat yang disiplin dan sistematis.</span>
-                    </li>
-                    <li className="flex items-start gap-xs">
-                      <CircleCheck className="w-5 h-5 text-tertiary mt-0.5 shrink-0" />
-                      <span className="text-on-surface-variant font-body-md text-body-md">Menanamkan nilai-nilai kerohanian dan persaudaraan yang kuat.</span>
-                    </li>
-                    <li className="flex items-start gap-xs">
-                      <CircleCheck className="w-5 h-5 text-tertiary mt-0.5 shrink-0" />
-                      <span className="text-on-surface-variant font-body-md text-body-md">Mencetak kader yang memiliki mental juara dan integritas tinggi.</span>
-                    </li>
-                    <li className="flex items-start gap-xs">
-                      <CircleCheck className="w-5 h-5 text-tertiary mt-0.5 shrink-0" />
-                      <span className="text-on-surface-variant font-body-md text-body-md">Aktif berkontribusi dalam kegiatan sosial kemasyarakatan.</span>
-                    </li>
+                  <h2 className="font-headline-sm text-lg text-primary font-bold mb-sm">Misi Kami</h2>
+                  <ul className="space-y-3">
+                    {[
+                      "Menyelenggarakan pelatihan pencak silat yang disiplin dan sistematis.",
+                      "Menanamkan nilai-nilai kerohanian dan persaudaraan yang kuat.",
+                      "Mencetak kader yang memiliki mental juara dan integritas tinggi.",
+                      "Aktif berkontribusi dalam kegiatan sosial kemasyarakatan."
+                    ].map((misi, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CircleCheck className="w-4 h-4 text-tertiary mt-1 shrink-0" />
+                        <span className="text-on-surface-variant font-body-md text-sm leading-relaxed">{misi}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

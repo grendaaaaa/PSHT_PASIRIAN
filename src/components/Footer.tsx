@@ -1,8 +1,13 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Globe, MessageCircle, Play, Send, Share2 } from 'lucide-react';
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith('/admin')) return null;
+
   return (
     <footer className="bg-gradient-to-r from-[#3d5558] via-[#576F72] to-[#3d5558] text-white font-sans">
 
