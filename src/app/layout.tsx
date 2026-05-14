@@ -18,6 +18,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "PSHT Pasirian Premium Portal",
   description: "Portal resmi PSHT Ranting Pasirian",
+  icons: {
+    icon: "/images/psht_logo_ranting.png",
+  },
 };
 
 export default function RootLayout({
