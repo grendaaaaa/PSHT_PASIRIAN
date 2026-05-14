@@ -16,11 +16,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "PSHT Pasirian Premium Portal",
-  description: "Portal resmi PSHT Ranting Pasirian",
-  icons: {
-    icon: "/images/psht_logo_ranting.png",
-  },
+  title: "PSHT Ranting Pasirian",
+  description: "PSHT Ranting Pasirian",
 };
 
 export default function RootLayout({
@@ -32,7 +29,9 @@ export default function RootLayout({
     <html lang="id">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/con.png" />
+        <link rel="shortcut icon" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
       </head>
       <body className={`${inter.className} ${poppins.variable} min-h-full flex flex-col bg-background text-on-surface font-body-md overflow-x-hidden font-sans`}>
         <Navbar />
